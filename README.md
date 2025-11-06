@@ -55,6 +55,3 @@ Este projeto está sob a **[MIT License](LICENSE)**. Sinta-se à vontade para us
 
 ---
 
-**Ação:** Lembre-se de substituir o `README.md` que o GitHub cria automaticamente por este texto, e fazer o upload do seu arquivo JSON **limpo** (removendo `id`, `createdAt`, etc.).
-
-Parabéns, seu projeto está finalizado e pronto para impressionar!
