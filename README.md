@@ -1,7 +1,5 @@
 # 🚀 Alerta de Estoque: Automação Condicional (n8n)
 
-**Status:** Completo e Pronto para Demonstração (Mocking)
-
 Este projeto demonstra um workflow robusto e seguro construído com **n8n** para simular o monitoramento de inventário em tempo real. O foco é a aplicação de **lógica condicional (IF)** para classificar produtos com **Estoque Crítico** e direcionar ações de notificação ou registro de forma autônoma.
 
 É um excelente exemplo de **Data Pipeline** focado em processamento, filtragem e decisão.
