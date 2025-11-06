@@ -1,1 +1,62 @@
-🚀 Alerta de Estoque: Automação Condicional (n8n)Status: Completo e Pronta para Produção (Mocking)Este projeto demonstra um workflow robusto e seguro construído com n8n para simular o monitoramento de inventário em tempo real. Ele aplica lógica condicional avançada para classificar produtos com Estoque Crítico e direcionar ações de notificação ou registro de forma autônoma.É um excelente exemplo de Data Pipeline focado em processamento, filtragem e decisão (IF-ELSE).✨ Destaques do Projeto e Habilidades DemonstradasEste workflow valida a proficiência nas seguintes áreas de automação:Arquitetura de Fluxo: Criação de um pipeline completo: Ingestão (API) → Manipulação → Lógica (IF) → Ações (Mocking).Manipulação de Dados Essencial: Uso combinado e estratégico dos nós Edit Fields (Set) e Rename Keys para:Limpeza de Dados: Remoção de campos irrelevantes da API de origem.Geração de Dados: Criação de campos dinâmicos (EstoqueAtual) com expressões JavaScript (Math.random()).Lógica Condicional (IF Node): Implementação de uma regra de "Estoque Crítico" (EstoqueAtual < 10) que bifurca o fluxo em rotas de alta e baixa prioridade.Melhores Práticas (Mocking): Uso de nós NoOp (Mock_...) para simular a integração com serviços como Google Sheets e Slack. Isso mantém o projeto 100% público e seguro no GitHub.⚙️ Arquitetura Detalhada do WorkflowO fluxo processa 100 itens da API e os divide em duas ações finais.Bloco (Node)Nome no WorkflowFunção e Lógica AplicadaIngestãoHTTP RequestConsome 100 registros fictícios (jsonplaceholder.typicode.com/posts).ManipulaçãoEdit FieldsCria o campo EstoqueAtual (aleatório 1-50) e extrai o ID_Produto.LimpezaRename KeysFiltra e limpa o fluxo, garantindo que apenas os campos criados (ID_Produto, EstoqueAtual) sigam para a decisão.DecisãoIFLógica: Se EstoqueAtual for menor que 10, segue para o caminho TRUE (Alerta).Ação TRUEMock_Email_Alerta_EstoqueAlerta Urgente: Simula o envio de e-mail/Slack para a equipe de reposição.Ação FALSEMock_Sheets_Registro_OKRegistro Normal: Simula o armazenamento em um banco de dados/planilha (Estoque OK).🛠️ Como Instalar e Testar o ProjetoPré-requisitos: Um ambiente n8n ativo (Self-hosted ou Cloud).Download: Baixe o arquivo Alerta_Estoque_Automacao_n8n.json deste repositório.Importação: No seu n8n, clique em File > Import from JSON e carregue o arquivo.Teste: Clique no botão Execute Workflow no canto inferior.Resultado EsperadoApós a execução, observe o nó IF:O número de itens nos caminhos TRUE e FALSE mudará a cada execução, confirmando que a lógica condicional está funcionando corretamente com dados dinâmicos.📄 LicençaEste projeto está sob a MIT License. Sinta-se à vontade para usar, modificar e distribuir o código.
+# 🚀 Alerta de Estoque: Automação Condicional (n8n)
+
+**Status:** Completo e Pronto para Demonstração (Mocking)
+
+Este projeto demonstra um workflow robusto e seguro construído com **n8n** para simular o monitoramento de inventário em tempo real. O foco é a aplicação de **lógica condicional (IF)** para classificar produtos com **Estoque Crítico** e direcionar ações de notificação ou registro de forma autônoma.
+
+É um excelente exemplo de **Data Pipeline** focado em processamento, filtragem e decisão.
+
+---
+
+## ✨ Destaques do Projeto e Habilidades Demonstradas
+
+Este workflow valida a proficiência nas seguintes áreas de automação:
+
+* **Arquitetura de Fluxo:** Criação de um pipeline completo: **Ingestão (API) → Manipulação → Lógica (IF) → Ações (Mocking)**.
+* **Manipulação de Dados Essencial:** Uso combinado e estratégico dos nós `Edit Fields (Set)` e `Rename Keys` para:
+    * **Limpeza de Dados:** Remoção de campos irrelevantes da API de origem.
+    * **Geração de Dados:** Criação de campos dinâmicos (`EstoqueAtual`) com expressões JavaScript (`Math.random()`).
+* **Lógica Condicional (IF Node):** Implementação de uma regra de **"Estoque Crítico"** (`EstoqueAtual < 10`) que bifurca o fluxo em rotas de alta e baixa prioridade.
+* **Melhores Práticas (Mocking):** Uso de nós `NoOp` (simulação) para substituir conexões reais de e-mail e planilhas, permitindo que o projeto seja **100% público e seguro** no GitHub.
+
+---
+
+## ⚙️ Arquitetura Detalhada do Workflow
+
+O fluxo processa itens da API (`jsonplaceholder`) e os divide em duas ações finais.
+
+| Bloco (Node) | Nome no Workflow | Função e Lógica Aplicada |
+| :--- | :--- | :--- |
+| **Gatilho** | `When clicking 'Execute workflow'` | Simula um gatilho manual para iniciar a automação. |
+| **Fonte** | `HTTP Request` | Busca 100 registros fictícios (produtos) de uma API pública. |
+| **Manipulação** | `Edit Fields` | Cria o campo `EstoqueAtual` (valor aleatório 1-50) e extrai o `ID_Produto`. |
+| **Limpeza** | `Rename Keys` | **Filtra e limpa** o fluxo, mantendo apenas os campos `ID_Produto` e `EstoqueAtual`. |
+| **Decisão** | `IF` | Lógica: Se `EstoqueAtual` é **menor que 10**, segue para o caminho **TRUE** (Alerta). |
+| **Ação TRUE** | `Mock_Email_Alerta_Estoque` | **Alerta Urgente:** Simula o envio de e-mail/Slack para a equipe de reposição. |
+| **Ação FALSE** | `Mock_Sheets_Registro_OK` | **Registro Normal:** Simula o armazenamento em um banco de dados/planilha. |
+
+---
+
+## 🛠️ Como Instalar e Testar o Projeto
+
+1.  **Download:** Baixe o arquivo JSON limpo (`Alerta_Estoque_Automacao_n8n.json`) deste repositório.
+2.  **Importação:** No seu ambiente n8n, clique em **File > Import from JSON** e carregue o arquivo.
+3.  **Teste:** Clique no botão **`Execute Workflow`** no canto inferior.
+
+### Resultado Esperado
+
+Após a execução, observe o nó **IF**:
+
+* O número de itens nos caminhos **TRUE** e **FALSE** (os nós `Mock_...`) mudará a cada execução, confirmando que a lógica condicional está funcionando corretamente com dados dinâmicos.
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a **[MIT License](LICENSE)**. Sinta-se à vontade para usar, modificar e distribuir o código.
+
+---
+
+**Ação:** Lembre-se de substituir o `README.md` que o GitHub cria automaticamente por este texto, e fazer o upload do seu arquivo JSON **limpo** (removendo `id`, `createdAt`, etc.).
+
+Parabéns, seu projeto está finalizado e pronto para impressionar!
